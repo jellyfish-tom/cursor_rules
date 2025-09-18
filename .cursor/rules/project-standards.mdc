@@ -24,8 +24,9 @@ priority: high
 - Prefer lodash and similar packages for utilities. Don't 'reinvent wheel'
 - Move runtime validation to TypeScript types
 - Use exhaustive pattern matching with .exhaustive()
-- Avoid unnecessary comments; prefer self-documenting code
+- **ZERO COMMENTS POLICY**: Avoid unnecessary comments; prefer self-documenting code
 - Create documentation files only when explicitly requested
+- **Self-Documenting Code First**: If you want to add a comment, refactor the code instead
 
 ## Response Style
 

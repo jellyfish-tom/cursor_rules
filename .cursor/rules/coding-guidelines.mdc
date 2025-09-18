@@ -32,10 +32,45 @@ priority: high
 6. **Functional and Immutable Style**: Prefer a functional, immutable style unless it becomes much more verbose
 7. **Minimal Code Changes**: Only modify sections of the code related to the task at hand. Avoid modifying unrelated pieces of code. Accomplish goals with minimal code changes
 
-## Comments and Documentation
+## Comments and Documentation - STRICT ENFORCEMENT
 
-- **Function Comments**: Add a comment at the start of more complex or exotic function describing what it does
-- **JSDoc Comments**: Use JSDoc comments for JavaScript and TypeScript and modern ES6 syntax
+**CRITICAL RULE: NO COMMENTS BY DEFAULT**
+
+- **ZERO TOLERANCE**: Do NOT add comments unless explicitly requested or for complex/exotic functions
+- **Self-Documenting Code**: If you find yourself wanting to add a comment, refactor the code to be self-documenting instead
+- **Comments = Technical Debt**: Comments add maintenance overhead and often indicate unclear code
+- **Before Adding ANY Comment, Ask**:
+  - Can this be expressed through better naming?
+  - Can this be expressed through TypeScript types?
+  - Can this be expressed through code structure?
+  - If YES to any above, refactor instead of commenting
+
+**ONLY EXCEPTIONS**:
+
+- Complex or exotic functions that need explanation (rare)
+- TODO comments for bugs or suboptimal code
+- JSDoc for public APIs when explicitly requested
+
+**EXAMPLES OF WHAT NOT TO DO**:
+
+```typescript
+// BAD - unnecessary comment
+// Get the user data
+const userData = await getUserData();
+
+// BAD - obvious comment
+// Check if user is authenticated
+if (isAuthenticated) {
+  // Process the request
+  processRequest();
+}
+
+// GOOD - self-documenting
+const userData = await getUserData();
+if (isAuthenticated) {
+  processRequest();
+}
+```
 
 ## Documentation-Driven Development
 
